@@ -15,7 +15,7 @@ console.log(randNum);
 //0 is red (“Rouge”), 34 is black (“Noir”), 10 is red, and so forth (colors alternate)
 for(let i=0;i<A.length;++i){
     if(A[i] == randNum){
-        if(A[i] % 2 == 0){
+        if(A[i] & 2 == 0){
             console.log("Black!")
         }
         else{console.log("Red!")}

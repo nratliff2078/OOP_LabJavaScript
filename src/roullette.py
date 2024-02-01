@@ -1,7 +1,6 @@
 import tornado.web
-import random
-
 
 class Handler(tornado.web.RequestHandler):
     def get(self):
-        self.render( "roullette.html")
+        
+        self.render( "main.html")
