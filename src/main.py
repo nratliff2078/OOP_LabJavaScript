@@ -1,7 +1,7 @@
 import asyncio
 import os, os.path
 import tornado.web
-import roullette
+import roullette, Profile, index, Sock, Quote       
 
 HTMLDIR = os.path.abspath(
     os.path.join(
@@ -10,10 +10,21 @@ HTMLDIR = os.path.abspath(
     )
 )
 
+class IndexPage(tornado.web.RequestHandler):
+    def get(self):
+        self.write("<a href='/static/roullette.html'>Visit the casino</a>")
+
+
+
 def makeApp():
     endpoints=[
 
-        ("/",roullette.Handler)
+
+        #("/",roullette.Handler),
+        #("/",index.Handler),
+        #("/Profile/.*",Profile.Handler),
+        ("/", IndexPage),
+        ("/sock", Sock.Handler)
     ]
     app = tornado.web.Application(
         endpoints,

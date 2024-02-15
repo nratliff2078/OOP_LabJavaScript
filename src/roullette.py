@@ -1,7 +1,8 @@
-import tornado.web
-import random
+import tornado.web, tornado.websocket
 
+activeClients=[]
 
 class Handler(tornado.web.RequestHandler):
     def get(self):
-        self.render( "roullette.html")
+        
+        self.render( "/static/roullette.html")
