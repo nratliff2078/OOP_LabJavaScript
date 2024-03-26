@@ -1,7 +1,7 @@
 import asyncio
 import os, os.path
 import tornado.web
-import roullette
+import Profile, index 
 
 HTMLDIR = os.path.abspath(
     os.path.join(
@@ -10,10 +10,16 @@ HTMLDIR = os.path.abspath(
     )
 )
 
+
 def makeApp():
     endpoints=[
 
-        ("/",roullette.Handler)
+
+        #("/",roullette.Handler),
+        ("/",index.Handler),
+        ("/Profile/.*",Profile.Handler)
+        #("/", IndexPage),
+       # ("/sock", Sock.Handler)
     ]
     app = tornado.web.Application(
         endpoints,
